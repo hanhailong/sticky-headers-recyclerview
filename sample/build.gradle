@@ -1,21 +1,17 @@
 apply plugin: 'com.android.application'
 
+
 android {
-    compileSdkVersion 20
-    buildToolsVersion "20.0.0"
+    compileSdkVersion rootProject.ext.compileSdkVersion as Integer
+    buildToolsVersion rootProject.ext.buildToolsVersion as String
+
 
     defaultConfig {
         applicationId "com.timehop.stickyheadersrecyclerview.sample"
-        minSdkVersion 7
-        targetSdkVersion 21
-        versionCode 1
-        versionName "0.1"
-    }
-    buildTypes {
-        release {
-            runProguard false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
+        minSdkVersion rootProject.ext.minSdkVersion as Integer
+        targetSdkVersion rootProject.ext.targetSdkVersion as Integer
+        versionCode rootProject.ext.versionCode as Integer
+        versionName rootProject.ext.versionName as String
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
@@ -24,6 +20,6 @@ android {
 }
 
 dependencies {
-    compile "com.android.support:recyclerview-v7:21.0.0-rc1"
     compile project(':library')
+    compile "com.android.support:appcompat-v7:${rootProject.supportLibsVersion}"
 }
